@@ -4,13 +4,15 @@ import '@testing-library/jest-dom';
 
 import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 
-import { doggosReducer } from '../reducers/doggosReducer'
+import searchReducer from '../reducers/searchReducer'
 
 const TestProviders = ({ initState }) => {
-    initState ||= { doggos: [], loading: false }
-    const testStore = createStore(() => doggosReducer(initState, { type: '@@INIT' }))
+    initState ||= { location: "", result: { sunrise: "", sunset: "" }, loading: false };
+    let testReducer = () => searchReducer(initState, { type: '@@INIT' })
+    const testStore = createStore(testReducer, applyMiddleware(thunk))
 
     return ({ children }) => (
         <Provider store={testStore}>
@@ -26,7 +28,7 @@ const renderWithReduxProvider = (ui, options={}) => {
 
 import axios from 'axios';
 jest.mock('axios')
-axios.get.mockResolvedValue({ data: { message: [] }})
+axios.get.mockResolvedValue({ data: [ { latlng: [123, 456] }]})
 
 global.renderWithReduxProvider = renderWithReduxProvider
 global.React = React;

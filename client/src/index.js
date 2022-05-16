@@ -1,20 +1,19 @@
-import React from 'react';
-import reactDom from 'react-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { Container } from '@mui/material';
-import { Box } from '@mui/system';
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import { BrowserRouter as Router } from "react-router-dom";
+import store from "./store";
+import App from "./App";
 
-import App from './App';
+import "./styles.css";
 
-reactDom.render(
+ReactDOM.render(
   <React.StrictMode>
-    <Container maxWidth="sm">
-      <Box textAlign="center" mt={5}>
-        <Router>
-          <App />
-        </Router>
-      </Box>
-    </Container>
+    <Provider store={store}>
+      <Router>
+        <App />
+      </Router>
+    </Provider>
   </React.StrictMode>,
-  document.querySelector('#root')
+  document.getElementById("root")
 );
