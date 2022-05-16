@@ -2,7 +2,7 @@ import React from "react";
 
 import { Navbar } from "../../components";
 
-const ResultsPage = () => {
+const NotFoundPage = () => {
   return (
     <>
       <Navbar />
@@ -10,4 +10,4 @@ const ResultsPage = () => {
   );
 };
 
-export default ResultsPage;
+export default NotFoundPage;
