@@ -1,16 +1,28 @@
-import React from 'react';
-import { Route, Routes } from 'react-router-dom';
-import QuizSetUp from './Pages/QuizSetUp';
-import GetQuiz from './Pages/GetQuiz';
-import FinalScore from './Pages/FinalScore';
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import {
+  GamePage,
+  LandingPage,
+  NotFoundPage,
+  ResultsPage,
+  RulesPage,
+  SettingsPage,
+} from "./pages";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<QuizSetUp />} />
-      <Route path="/questions" element={<GetQuiz />} />
-      <Route path="score" element={<FinalScore />} />
-    </Routes>
+    <div id="quiz-app">
+      <main>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/rules" element={<RulesPage />} />
+          <Route path="/settings" element={<SettingsPage />} />
+          <Route path="/game" element={<GamePage />} />
+          <Route path="/results" element={<ResultsPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </main>
+    </div>
   );
 }
 
