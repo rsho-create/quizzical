@@ -1,19 +1,29 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import { Welcome } from "./pages";
+import {
+  GamePage,
+  LandingPage,
+  NotFoundPage,
+  ResultsPage,
+  RulesPage,
+  SettingsPage,
+} from "./pages";
 
 function App() {
   return (
     <div id="quiz-app">
       <main>
         <Routes>
-          <Route path="/" element={<Welcome />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/rules" element={<RulesPage />} />
+          <Route path="/settings" element={<SettingsPage />} />
+          <Route path="/game" element={<GamePage />} />
+          <Route path="/results" element={<ResultsPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
     </div>
   );
 }
-
 
 export default App;

@@ -1,7 +1,7 @@
 import React from "react";
 import { Navbar } from "../../components";
 
-const RulesPage = () => {
+const NotFoundPage = () => {
   return (
     <>
       <Navbar />
@@ -9,4 +9,4 @@ const RulesPage = () => {
   );
 };
 
-export default RulesPage;
+export default NotFoundPage;

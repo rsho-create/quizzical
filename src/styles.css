@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+
+:root {
+  --primary-blue: #001db2;
+  --secondary-pink: #d94361;
+  --secondary-yellow: #ffc107;
+  --text-blue: #000a3c;
+  --background: #e5e5e5;
+}
+
+/* Generic */
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.primary-button,
+.secondary-button {
+  color: var(--text-blue);
+  width: 570px;
+  height: 80px;
+  font-weight: 700;
+  border: none;
+  display: block;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.primary-button {
+  background-color: var(--secondary-yellow);
+}
+
+.secondary-button {
+  background-color: var(--background);
+  margin-top: 30px;
+}
+
+/* Navbar */
+header {
+  height: 175px;
+  width: 100%;
+  background-color: var(--primary-blue);
+  display: flex;
+  justify-content: center;
+  border-color: var(--primary-blue);
+  align-items: center;
+}
+
+.Navbar-logo {
+  height: 125px;
+}
+
+/* LandingPage */
+#LandingPage-section {
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--primary-blue);
+  display: flex;
+  justify-content: center;
+}
+
+#LandingPage-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#Landing-logo {
+  width: 65%;
+}
+
+#landing-text {
+  color: var(--background);
+  font-weight: 500;
+  font-size: 24px;
+  max-width: 570px;
+  text-align: center;
+}
+
+footer {
+  background-color: var(--primary-blue);
+  color: var(--background);
+  position: fixed;
+  bottom: 0;
+}
+
+footer a {
+  color: var(--background);
+  text-decoration: none;
+}
+/* SettingsPage */
+
+/* GamePage */
+
+/* ResultsPage */
+
+/* RulesPage */
+
+/* NotFoundPage */
