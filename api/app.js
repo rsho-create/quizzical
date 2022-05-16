@@ -13,9 +13,6 @@ const logRoutes = require("./middleware/log-routes");
 app.use(logRoutes)
 
 
-
-
-
 app.get('/', (req, res) => res.send('Welcome to EnterQuiz!'));
 app.use('/users', usersRoutes);
 
