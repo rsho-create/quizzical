@@ -1,6 +1,11 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+
 
 const LandingPage = () => {
+  // use this to redirect to other pages
+  const navigate = useNavigate();
+
   return (
     <>
       <div id="LandingPage-section">
@@ -15,8 +20,8 @@ const LandingPage = () => {
             viverra dictumst posuere aliquet sem nullam in diam. Eleifend
             viverra dictumst posuere aliquet sem nullam in diam.
           </h2>
-          <button className="primary-button">Play</button>
-          <button className="secondary-button">Rules</button>
+          <button className="primary-button" onClick={() => navigate("/settings")}>Play</button>
+          <button className="secondary-button" onClick={() => navigate("/rules")}>Rules</button>
         </div>
         <footer>
           Created and designed by&nbsp;
