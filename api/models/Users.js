@@ -2,7 +2,7 @@ const { getDb, connectToDb } = require('../db')
 const { ObjectId } = require('mongodb');
 
 connectToDb(() => {
-  const db = getDb()
+  db = getDb()
 })
 
 
