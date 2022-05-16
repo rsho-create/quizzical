@@ -11,7 +11,7 @@
 /* Generic */
 body {
   margin: 0;
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif !important;
 }
 
 .primary-button,
@@ -20,8 +20,8 @@ body {
   width: 570px;
   height: 80px;
   font-weight: 700;
-  border: none;
   display: block;
+  border: none;
   font-size: 30px;
   cursor: pointer;
 }
@@ -42,11 +42,11 @@ header {
   background-color: var(--primary-blue);
   display: flex;
   justify-content: center;
-  border-color: var(--primary-blue);
   align-items: center;
 }
 
 .Navbar-logo {
+  padding: 10px;
   height: 125px;
 }
 
@@ -70,7 +70,7 @@ header {
   width: 65%;
 }
 
-#landing-text {
+#Landing-text {
   color: var(--background);
   font-weight: 500;
   font-size: 24px;
@@ -79,7 +79,6 @@ header {
 }
 
 footer {
-  background-color: var(--primary-blue);
   color: var(--background);
   position: fixed;
   bottom: 0;

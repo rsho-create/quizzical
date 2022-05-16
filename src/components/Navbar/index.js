@@ -7,7 +7,7 @@ const Navbar = () => {
       <a href="/">
         <img
           src="../../images/quizzical.png"
-          className="Navbar-logo"
+          class="Navbar-logo"
           alt="Quizzical Logo"
         />
       </a>
