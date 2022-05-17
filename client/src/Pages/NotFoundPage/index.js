@@ -5,7 +5,12 @@ const NotFoundPage = () => {
   return (
     <>
       <Navbar />
-      <h1>404 - page not found </h1>
+      <div id="error">
+        <h1>ERROR 404</h1>
+        <img id="drinkMan" src="../images/drunk.png" alt="Animated drunk man" width="45%"></img>
+        <p>PLEASE DRINK RESPONSIBLY</p>
+      </div>
+      {/* <Footer /> */}
     </>
   );
 };

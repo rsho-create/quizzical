@@ -262,3 +262,27 @@ footer a {
     font-size: 16px;
   }
 }
+
+
+/***************************************************************************************/
+/* NotFoundPage */
+
+#error {
+  text-align: center;
+  
+}
+
+
+#drunkMan {
+  float: left;
+  margin-top: 100px;
+  justify-content: center;
+}
+
+#error p {
+  margin-top: 50px;
+  font-size: 34px;
+}
+
+
+
