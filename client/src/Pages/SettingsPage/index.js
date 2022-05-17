@@ -40,7 +40,7 @@ const SettingsPage = () => {
           {"\n"}
           {"\n"}
           <Typography variant="h5">
-            Rules
+            How to Play
           </Typography>
 
           <form onSubmit={handleSubmit}>
