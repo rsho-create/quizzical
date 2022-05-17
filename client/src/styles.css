@@ -1,29 +1,32 @@
+/***************************************************************************************/
+/* Generic */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
 
 :root {
   --primary-blue: #001db2;
+  --primary-blue-very-dark: #000a3c;
+  --primary-blue-light: #e5e5e5;
   --secondary-pink: #d94361;
   --secondary-yellow: #ffc107;
-  --text-blue: #000a3c;
-  --background: #e5e5e5;
 }
 
-/* Generic */
 body {
   margin: 0;
   font-family: "Poppins", sans-serif !important;
+  background-color: var(--primary-blue-light);
 }
 
 .primary-button,
 .secondary-button {
-  color: var(--text-blue);
-  width: 570px;
+  color: var(--primary-blue-very-dark);
+  width: 60%;
   height: 80px;
   font-weight: 700;
   display: block;
   border: none;
   font-size: 30px;
   cursor: pointer;
+  margin-top: 30px;
 }
 
 .primary-button {
@@ -31,10 +34,10 @@ body {
 }
 
 .secondary-button {
-  background-color: var(--background);
-  margin-top: 30px;
+  background-color: var(--primary-blue-light);
 }
 
+/***************************************************************************************/
 /* Navbar */
 header {
   height: 175px;
@@ -50,6 +53,7 @@ header {
   height: 125px;
 }
 
+/***************************************************************************************/
 /* LandingPage */
 #LandingPage-section {
   height: 100vh;
@@ -67,11 +71,11 @@ header {
 }
 
 #Landing-logo {
-  width: 65%;
+  width: 50%;
 }
 
 #Landing-text {
-  color: var(--background);
+  color: var(--primary-blue-light);
   font-weight: 500;
   font-size: 24px;
   max-width: 570px;
@@ -79,22 +83,132 @@ header {
 }
 
 footer {
-  color: var(--background);
+  color: var(--primary-blue-light);
   position: fixed;
   bottom: 0;
 }
 
 footer a {
-  color: var(--background);
+  color: var(--primary-blue-light);
   text-decoration: none;
 }
 
+/***************************************************************************************/
 /* SettingsPage */
 
+/***************************************************************************************/
 /* GamePage */
+.timer {
+  width: 100%;
+  background-color: #c6c1c1;
+  position: relative;
+}
 
+.remaining-time-line {
+  position: absolute;
+  width: 10%;
+  background-color: var(--secondary-pink);
+  color: var(--secondary-pink);
+}
+
+.remaining-time-text {
+  text-align: right;
+  padding-right: 20px;
+}
+
+.players {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.player1,
+.player2 {
+  width: 50%;
+  border: 1px solid var(--primary-blue-very-dark);
+  text-align: center;
+  margin-top: 10px;
+}
+
+.active-player {
+  border: 3px solid var(--primary-blue);
+}
+
+.question {
+  text-align: center;
+  margin-top: 60px;
+}
+
+.answers-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 20%;
+}
+
+.answer1,
+.answer2,
+.answer3,
+.answer4 {
+  width: 37.5%;
+  height: 15vh;
+  filter: drop-shadow(0px 4px 4px #bfc7ee);
+  border-radius: 20px;
+
+  margin: 3%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.answer1,
+.answer4 {
+  background-color: var(--secondary-yellow);
+}
+
+.answer2,
+.answer3 {
+  background-color: var(--secondary-pink);
+  color: var(--primary-blue-light);
+}
+
+@media screen and (max-width: 1000px) {
+  .primary-button,
+  .secondary-button {
+    width: 50%;
+    height: 50px;
+    font-size: 16px;
+  }
+
+  header {
+    height: 100px;
+  }
+
+  .Navbar-logo {
+    height: 65px;
+  }
+
+  #Landing-text {
+    font-size: 16px;
+    padding-left: 20%;
+    padding-right: 20%;
+  }
+
+  #Landing-logo {
+    width: 80%;
+  }
+
+  footer {
+    font-size: 12px;
+  }
+}
+
+/***************************************************************************************/
 /* ResultsPage */
 
+/***************************************************************************************/
 /* RulesPage */
 
+/***************************************************************************************/
 /* NotFoundPage */
