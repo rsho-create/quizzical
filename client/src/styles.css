@@ -270,7 +270,6 @@ footer a {
 }
 
 .points-container p {
-  position: absolute;
   bottom: 0;
 }
 
@@ -326,9 +325,6 @@ footer a {
 }
 
 /***************************************************************************************/
-/* ResultsPage */
-
-/***************************************************************************************/
 /* RulesPage */
 #RulesPage-container {
   display: flex;
@@ -343,8 +339,17 @@ footer a {
 
 /***************************************************************************************/
 /* Responsive Styling */
-@media screen and (max-width: 1000px) {
+@media screen and (min-width: 700px) {
+  .responsive-para {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 700px) {
   /* Generic */
+  body {
+    margin: 0;
+  }
   .primary-button,
   .secondary-button {
     width: 50%;
@@ -353,7 +358,8 @@ footer a {
   }
 
   header {
-    height: 100px;
+    height: 10%;
+    width: 100%;
   }
 
   .Navbar-logo {
@@ -374,7 +380,6 @@ footer a {
   footer {
     font-size: 12px;
   }
-
 
   /* RulesPage */
   #rules-heading {
@@ -456,5 +461,41 @@ footer a {
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  /* Results page */
+  .page-container h1 {
+    font-size: 32px;
+    margin-top: 10px;
+  }
+
+  .responsive-hidden-p {
+    display: none;
+  }
+
+  #results-container {
+    display: inline;
+    margin-top: -40px;
+  }
+
+  #results-container img {
+    display: none;
+  }
+
+  .points-container {
+    height: 63px;
+    display: flex;
+  }
+
+  .points-container p {
+    margin: -1px;
+  }
+
+  #winner-container {
+    margin-bottom: -20px;
+  }
+
+  #restartBtn {
+    width: 50%;
   }
 }
