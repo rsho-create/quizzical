@@ -11,7 +11,7 @@ async function index(req, res) {
 
 async function show(req, res) {
   try {
-    const users = await User.findByUsername(req.params.id);
+    const users = await User.findByUsername(req.params.id, req.body);
     res.status(200).json(users);
   } catch (err) {
     res.status(404).json({ err });
@@ -20,7 +20,7 @@ async function show(req, res) {
 
 async function create(req, res) {
   try {
-    const users = await User.create(req.body);
+    const users = await User.create(re.params.username, req.body);
     res.status(201).json(users);
   } catch (err) {
     res.status(422).json({ err });
