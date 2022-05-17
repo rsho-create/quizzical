@@ -1,20 +1,22 @@
-import React from 'react';
-import reactDom from 'react-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { Container } from '@mui/material';
-import { Box } from '@mui/system';
+import "./styles.css";
+import App from "./App";
+import React from "react";
+import store from "./store";
+import { Provider } from "react-redux";
+import { createRoot } from "react-dom/client";
+import { BrowserRouter as Router } from "react-router-dom";
 
-import App from './App';
+//  newest version of react changed how ReactDOM.render works - very similar but different
 
-reactDom.render(
+const rootElement = document.getElementById("root");
+const root = createRoot(rootElement);
+
+root.render(
   <React.StrictMode>
-    <Container maxWidth="sm">
-      <Box textAlign="center" mt={5}>
-        <Router>
-          <App />
-        </Router>
-      </Box>
-    </Container>
-  </React.StrictMode>,
-  document.querySelector('#root')
+    <Provider store={store}>
+      <Router>
+        <App />
+      </Router>
+    </Provider>
+  </React.StrictMode>
 );
