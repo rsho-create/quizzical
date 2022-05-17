@@ -6,8 +6,8 @@ const RulesPage = () => {
   const navigate = useNavigate();
   return (
     <>
-      <div id="RulesPage-section">
-        <div id="RulesPage-container">
+      <div id="rulesPage-section">
+        <div className="page-container">
           <Navbar />
           <h1 id="rules-heading">Rules</h1>
           <ol id="rules-list">
@@ -36,13 +36,15 @@ const RulesPage = () => {
               Deserunt, velit.
             </li>
           </ol>
-          <button
-            id="back-btn"
-            className="primary-button"
-            onClick={() => navigate(-1)}
-          >
-            Back
-          </button>
+          <div className="btn-container">
+            <button
+              id="back-btn"
+              className="primary-button"
+              onClick={() => navigate(-1)}
+            >
+              Back
+            </button>
+          </div>
         </div>
       </div>
     </>

@@ -175,28 +175,41 @@ footer a {
 
 /***************************************************************************************/
 /* ResultsPage */
-
-/***************************************************************************************/
-/* RulesPage */
-#RulesPage-container {
+.page-container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+#restartBtn {
+  margin-bottom: 20px;
+  width: 570px;
+  height: 80px;
+}
+
+/***************************************************************************************/
+/* RulesPage */
 #rules-heading {
   font-size: 64px;
   font-weight: 700;
 }
 
-#back-btn {
-  position: absolute;
+.btn-container {
+  background-color: var(--primary-blue-light);
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: fixed;
   bottom: 0;
+}
+#back-btn {
   margin-bottom: 20px;
+  width: 570px;
+  height: 80px;
 }
 
 #rules-list {
-  font-size: 16px;
+  font-size: 24px;
 }
 
 /***************************************************************************************/
@@ -234,8 +247,18 @@ footer a {
   footer {
     font-size: 12px;
   }
-
+  /* Responsive design for Rules page */
   #rules-heading {
     font-size: 32px;
+    padding-top: 10px;
+  }
+
+  #back-btn {
+    width: 50%;
+    height: 50px;
+  }
+
+  #rules-list {
+    font-size: 16px;
   }
 }
