@@ -209,6 +209,26 @@ footer a {
 
 /***************************************************************************************/
 /* RulesPage */
+#RulesPage-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#rules-heading {
+  font-size: 64px;
+  font-weight: 700;
+}
+
+#back-btn {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 20px;
+}
+
+#rules-list {
+  font-size: 16px;
+}
 
 /***************************************************************************************/
 /* NotFoundPage */
