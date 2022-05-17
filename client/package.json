@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "webpack-cli serve --mode development --config config/webpack.config.dev.js",
     "build": "webpack --config config/webpack.config.production.js",
-    "test": "jest --watch --silent --setupFilesAfterEnv ./src/test/setupTests.js",
+    "test": "jest --watchAll --silent --setupFilesAfterEnv ./src/test/setupTests.js",
     "coverage": "jest --silent --setupFilesAfterEnv ./src/test/setupTests.js --coverage --watchAll=false",
     "autograde": "jest --silent --setupFilesAfterEnv ./src/test/setupTests.js"
   },
@@ -37,6 +37,7 @@
     "html-webpack-plugin": "^4.5.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.6.3",
+    "jest-environment-jsdom": "^28.1.0",
     "redux-devtools-extension": "^2.13.9",
     "style-loader": "^2.0.0",
     "webpack": "^5.8.0",
