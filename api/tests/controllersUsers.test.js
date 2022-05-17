@@ -1,5 +1,5 @@
 const usersController = require('../controllers/users')
-const User = require('../models/User');
+const User = require('../models/Users');
 
 const mockSend = jest.fn();
 const mockJson = jest.fn();
@@ -55,7 +55,7 @@ describe('users controller', () => {
 })
 
 describe("show by id", () => {
-    test("it returns a habit with a 200 status code", async () => {
+    test("it returns a user with id a 200 status code", async () => {
       let testHabit = {
         username: 'admin'
       };

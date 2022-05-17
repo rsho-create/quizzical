@@ -6,7 +6,7 @@ const NotFoundPage = () => {
     <>
       <Navbar />
       <div id="error">
-        <h1>ERROR 404</h1>
+        <h1>ERROR 404 - Page not found</h1>
         <img
           id="drinkMan"
           src="../images/drunk.png"

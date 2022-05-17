@@ -6,11 +6,47 @@ const ResultsPage = () => {
   const navigate = useNavigate();
   return (
     <>
+      {/* NavBar & Title */}
       <div className="page-section">
         <Navbar />
         <div className="page-container">
           <h1>Results</h1>
           <h3>Player1, pick the Loser's poison!</h3>
+
+          {/* Results container */}
+          <div id="results-container">
+            {/* <img
+              id="winners-crown"
+              src="./images/crown.png"
+              alt="Royal crown"
+            /> */}
+            <div id="winner-container">
+              <h2>
+                <strong>Winner</strong>
+              </h2>
+              <p>Player1</p>
+              <div className="points-container">
+                <img src="./images/beer.png" alt="Pint of frothy beer" />
+                <p>3 points</p>
+              </div>
+            </div>
+
+            <div id="loser-container">
+              <h2>
+                <strong>Loser</strong>
+              </h2>
+              <p>Player2</p>
+              <div className="points-container">
+                <img
+                  src="./images/whisky.png"
+                  alt="Bottle of whisky and a spilt shot glass"
+                />
+                <p>1 point</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Play Again Button */}
           <div className="btn-container">
             <button
               id="restartBtn"
