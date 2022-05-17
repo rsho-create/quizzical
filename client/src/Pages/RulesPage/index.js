@@ -1,7 +1,9 @@
 import React from "react";
 import { Navbar } from "../../components";
+import { useNavigate } from "react-router-dom";
 
 const RulesPage = () => {
+  const navigate = useNavigate();
   return (
     <>
       <div id="RulesPage-section">
@@ -34,7 +36,11 @@ const RulesPage = () => {
               Deserunt, velit.
             </li>
           </ol>
-          <button id="back-btn" className="primary-button">
+          <button
+            id="back-btn"
+            className="primary-button"
+            onClick={() => navigate(-1)}
+          >
             Back
           </button>
         </div>
