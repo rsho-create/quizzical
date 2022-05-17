@@ -173,6 +173,51 @@ footer a {
   color: var(--primary-blue-light);
 }
 
+/***************************************************************************************/
+/* ResultsPage */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#restartBtn {
+  margin-bottom: 20px;
+  width: 570px;
+  height: 80px;
+}
+
+/***************************************************************************************/
+/* RulesPage */
+#rules-heading {
+  font-size: 64px;
+  font-weight: 700;
+}
+
+.btn-container {
+  background-color: var(--primary-blue-light);
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
+#back-btn {
+  margin-bottom: 20px;
+  width: 570px;
+  height: 80px;
+}
+
+#rules-list {
+  font-size: 24px;
+}
+
+/***************************************************************************************/
+/* NotFoundPage */
+
+/***************************************************************************************/
+/* Responsive Styling */
+
 @media screen and (max-width: 1000px) {
   .primary-button,
   .secondary-button {
@@ -202,33 +247,22 @@ footer a {
   footer {
     font-size: 12px;
   }
+  /* Responsive design for Rules page */
+  #rules-heading {
+    font-size: 32px;
+    padding-top: 10px;
+  }
+
+  #back-btn {
+    width: 50%;
+    height: 50px;
+  }
+
+  #rules-list {
+    font-size: 16px;
+  }
 }
 
-/***************************************************************************************/
-/* ResultsPage */
-
-/***************************************************************************************/
-/* RulesPage */
-#RulesPage-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-#rules-heading {
-  font-size: 64px;
-  font-weight: 700;
-}
-
-#back-btn {
-  position: absolute;
-  bottom: 0;
-  margin-bottom: 20px;
-}
-
-#rules-list {
-  font-size: 16px;
-}
 
 /***************************************************************************************/
 /* NotFoundPage */
@@ -249,5 +283,6 @@ footer a {
   margin-top: 50px;
   font-size: 34px;
 }
+
 
 
