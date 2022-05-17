@@ -196,11 +196,59 @@ footer a {
   flex-direction: column;
   align-items: center;
 }
+.page-container h1 {
+  font-size: 64px;
+  margin: -5px;
+}
+
+#winners-crown {
+  position: absolute;
+}
 
 #restartBtn {
   margin-bottom: 20px;
   width: 570px;
   height: 80px;
+}
+
+#results-container {
+  display: flex;
+}
+
+#results-container div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 335px;
+}
+
+#results-container h2 {
+  margin: -5px;
+  margin-top: 5px;
+}
+
+.points-container {
+  background-color: var(--primary-blue);
+  height: 280px;
+  color: var(--primary-blue-light);
+  position: relative;
+}
+
+.points-container p {
+  position: absolute;
+  bottom: 0;
+}
+
+#winner-container {
+  background-color: var(--secondary-yellow);
+  margin: 50px;
+}
+
+#loser-container {
+  background-color: var(--secondary-pink);
+  margin: 50px;
+  color: var(--primary-blue-light);
 }
 
 /***************************************************************************************/
@@ -220,8 +268,6 @@ footer a {
 }
 #back-btn {
   margin-bottom: 20px;
-  width: 570px;
-  height: 80px;
 }
 
 #rules-list {
@@ -265,7 +311,6 @@ footer a {
   footer {
     font-size: 12px;
   }
-
 
   /* Gamepage */
   .game-container {
@@ -342,31 +387,27 @@ footer a {
   font-weight: 700;
 }
 
-  /* Responsive design for Rules page */
-  #rules-heading {
-    font-size: 32px;
-    padding-top: 10px;
-  }
+/* Responsive design for Rules page */
+#rules-heading {
+  font-size: 32px;
+  padding-top: 10px;
+}
 
+#back-btn {
+  width: 50%;
+  height: 50px;
+}
 
-  #back-btn {
-    width: 50%;
-    height: 50px;
-  }
-
-  #rules-list {
-    font-size: 16px;
-  }
-
+#rules-list {
+  font-size: 16px;
+}
 
 /***************************************************************************************/
 /* NotFoundPage */
 
 #error {
   text-align: center;
-  
 }
-
 
 #drunkMan {
   float: left;
@@ -378,6 +419,3 @@ footer a {
   margin-top: 50px;
   font-size: 34px;
 }
-
-
-
