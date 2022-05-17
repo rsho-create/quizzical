@@ -20,10 +20,7 @@ const LandingPage = () => {
             viverra dictumst posuere aliquet sem nullam in diam. Eleifend
             viverra dictumst posuere aliquet sem nullam in diam.
           </h2>
-          <button
-            className="primary-button"
-            onClick={() => navigate("/settings")}
-          >
+          <button className="primary-button" onClick={() => navigate("/agree")}>
             Play
           </button>
           <button

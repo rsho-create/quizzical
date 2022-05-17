@@ -97,6 +97,40 @@ footer a {
 }
 
 /***************************************************************************************/
+/* BeforeYouStartPage */
+
+#beforeYouStart-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#beforeYouStart-heading {
+  font-size: 64px;
+  text-align: center;
+  padding-top: 1%;
+}
+
+#beforeYouStart-terms {
+  font-size: 32px;
+  font-weight: 500;
+  padding-top: 1%;
+  width: 55%;
+}
+
+#beforeYouStart-terms i {
+  padding-right: 5%;
+}
+#beforeYouStart-terms p {
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+#agree-button {
+  margin-top: 3%;
+}
+
+/***************************************************************************************/
 /* SettingsPage */
 
 /***************************************************************************************/
@@ -230,10 +264,39 @@ footer a {
 
 /***************************************************************************************/
 /* NotFoundPage */
+#error {
+  text-align: center;
+}
+
+#drunkMan {
+  float: left;
+  margin-top: 100px;
+  justify-content: center;
+}
+
+#error p {
+  margin-top: 50px;
+  font-size: 34px;
+}
+
+/***************************************************************************************/
+/* ResultsPage */
+
+/***************************************************************************************/
+/* RulesPage */
+#RulesPage-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#rules-heading {
+  font-size: 64px;
+  font-weight: 700;
+}
 
 /***************************************************************************************/
 /* Responsive Styling */
-
 @media screen and (max-width: 1000px) {
   /* Generic */
   .primary-button,
@@ -266,8 +329,31 @@ footer a {
     font-size: 12px;
   }
 
+  /* RulesPage */
+  #rules-heading {
+    font-size: 32px;
+    padding-top: 10px;
+  }
 
-  /* Gamepage */
+  #back-btn {
+    width: 50%;
+    height: 50px;
+  }
+
+  #rules-list {
+    font-size: 16px;
+  }
+
+  /* BeforeYouStartPage */
+  #beforeYouStart-heading {
+    font-size: 32px;
+  }
+
+  #beforeYouStart-terms {
+    font-size: 18px;
+  }
+
+  /* GamePage */
   .game-container {
     display: flex;
     justify-content: center;
@@ -325,59 +411,3 @@ footer a {
     justify-content: center;
   }
 }
-
-/***************************************************************************************/
-/* ResultsPage */
-
-/***************************************************************************************/
-/* RulesPage */
-#RulesPage-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-#rules-heading {
-  font-size: 64px;
-  font-weight: 700;
-}
-
-  /* Responsive design for Rules page */
-  #rules-heading {
-    font-size: 32px;
-    padding-top: 10px;
-  }
-
-
-  #back-btn {
-    width: 50%;
-    height: 50px;
-  }
-
-  #rules-list {
-    font-size: 16px;
-  }
-
-
-/***************************************************************************************/
-/* NotFoundPage */
-
-#error {
-  text-align: center;
-  
-}
-
-
-#drunkMan {
-  float: left;
-  margin-top: 100px;
-  justify-content: center;
-}
-
-#error p {
-  margin-top: 50px;
-  font-size: 34px;
-}
-
-
-
