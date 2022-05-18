@@ -24,8 +24,9 @@ const ResultsPage = () => {
               <h2>
                 <strong>Winner</strong>
               </h2>
-              <p>Player1</p>
+              <p className="responsive-hidden-p">Player1</p>
               <div className="points-container">
+                <p className="responsive-para">Player1</p>
                 <img src="./images/beer.png" alt="Pint of frothy beer" />
                 <p>3 points</p>
               </div>
@@ -35,8 +36,9 @@ const ResultsPage = () => {
               <h2>
                 <strong>Loser</strong>
               </h2>
-              <p>Player2</p>
+              <p className="responsive-hidden-p">Player2</p>
               <div className="points-container">
+                <p className="responsive-para">Player2</p>
                 <img
                   src="./images/whisky.png"
                   alt="Bottle of whisky and a spilt shot glass"
