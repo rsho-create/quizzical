@@ -1,9 +1,9 @@
 {
-  "description": "reactQuizApp",
+  "description": "quizzical",
   "scripts": {
     "start": "node api/index.js",
     "dev": "nodemon --legacy-watch",
-    "test": "jest tests --watchAll --detectOpenHandles --runInBand --verbose",
+    "test": "jest tests --watch --detectOpenHandles --runInBand --verbose",
     "unitTests": "jest --testPathPattern=/unit/ --watchAll --verbose",
     "coverage": "jest --testPathPattern=/unit/ --coverage"
   },
