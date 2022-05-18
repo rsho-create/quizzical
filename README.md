@@ -79,6 +79,7 @@ Organising and planning
 
 
 ![Screenshot 2022-05-18 at 15 35 13](https://user-images.githubusercontent.com/99223110/169067550-f8bb88f7-4516-4747-997a-8ec424d1ef3d.png)
+![Screenshot 2022-05-18 at 15 54 11](https://user-images.githubusercontent.com/99223110/169071855-a8d78f2a-abed-40c7-8bad-e0d067d86c63.png)
 
 
 ---
