@@ -4,15 +4,17 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchCategories, categories } from "../../reducers/categoriesSlice";
 import { FormControl, InputLabel, MenuItem, Select, CircularProgress, Typography } from '@mui/material';
 
-const Categories = props => {
-  const { label } = props;
+const Categories = () => {
   const dispatch = useDispatch();
 
   const [value, setValue] = useState('');
 
-  const handleChange = () => {};
+  const handleChange = (e) => {setValue(e.target.value)};
 
   const allCategories = useSelector(categories);
+  // fixing the problem
+  const categoriesSliced = allCategories.slice(24)
+
   const categoryStatus = useSelector(state => state.categories.status);
     // if the default state is idle (which it is on load) - fetch categories from trivia
   useEffect(() => {
@@ -21,14 +23,14 @@ const Categories = props => {
     }
   }, [categoryStatus, dispatch]);
   
-  console.log(allCategories)
+  console.log(categoriesSliced)
     
     // if the default state is idle (which it is on load) - fetch categories from trivia
   
     if (categoryStatus === "loading") {
       return (
       <Box mt={20}>
-        <CircularProgress />
+        <CircularProgress size={150} />
       </Box>
       );
     }
@@ -45,11 +47,11 @@ const Categories = props => {
 
   return (
     <Box mt={3} width="100%">
-      <FormControl  fullWidth>
-        <InputLabel>{label}</InputLabel>
-        <Select value={value} label={label} onChange={handleChange}>
-          {allCategories.map(({name}, id) => (
-            <MenuItem key={id}>{name}</MenuItem>
+      <FormControl  fullWidth size='small'>
+        <InputLabel>Categories</InputLabel>
+        <Select value={value} label="Categories" onChange={handleChange}>
+          {categoriesSliced.map(({name}, id) => (
+            <MenuItem value={id} key={id}>{name}</MenuItem>
           ))}
         </Select>
       </FormControl>
