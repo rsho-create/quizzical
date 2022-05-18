@@ -1,10 +1,13 @@
 import { FormControl, TextField } from '@mui/material';
 import { Box } from '@mui/system';
-import React from 'react';
+import React, { useState } from 'react';
 
-const TextFieldComp = () => {
+const TextFieldComp = (props) => {
+    const [value, setValue] = useState('');
 
-    const handleChange = () => {  }
+    const { label, options } = props;
+    
+    const handleChange = (e) => {setValue(e.target.value)};
 
     return (
     <Box mt={3} width="100%">
@@ -12,8 +15,8 @@ const TextFieldComp = () => {
             <TextField
               onChange={handleChange}
               variant="outlined"
-              label="Amount of Questions"
-              type='number'
+              label={label}
+              type='text'
               size='small'
             />
         </FormControl>

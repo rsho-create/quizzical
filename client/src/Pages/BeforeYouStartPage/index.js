@@ -12,17 +12,17 @@ const BeforeYouStartPage = () => {
 
         <div id="beforeYouStart-terms">
           <p>
-            <i class="fa-solid fa-martini-glass icon"></i>Everyone playing is
+            <i className="fa-solid fa-martini-glass icon"></i>Everyone playing is
             over the age of 18
           </p>
 
           <p>
-            <i class="fa-solid fa-skull-crossbones icon"></i>Everyone playing
+            <i className="fa-solid fa-skull-crossbones icon"></i>Everyone playing
             will drink responsibly
           </p>
 
           <p>
-            <i class="fa-solid fa-handshake "></i>You agree to our{" "}
+            <i className="fa-solid fa-handshake "></i>You agree to our{" "}
             <a href="">privacy</a> and <a href="">cookie policy</a>
           </p>
         </div>
