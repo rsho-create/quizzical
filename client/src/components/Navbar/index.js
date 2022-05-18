@@ -5,7 +5,7 @@ export const LocationDisplay = () => {
   const location = useLocation();
 
   return (
-    <div class="location-path-name" data-testid="location-display">
+    <div class="location-path-name" data-testid="navbar-location-display">
       {location.pathname}
     </div>
   );
