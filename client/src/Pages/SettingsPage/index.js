@@ -1,17 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Box } from '@mui/system';
+import { Button, CircularProgress } from "@mui/material"
 import { Navbar } from "../../components";
-import { SelectField } from '../../components';
+import { Categories } from '../../components';
 import { Container, Typography } from "@mui/material";
-import { Button } from "@mui/material"
-import TextFieldComp from "../../components/TextField";
+import { useSelector, useDispatch } from "react-redux";
 
 const SettingsPage = () => {
-
+  const [roundSettings, setRoundSettings] = useState([]);
+  
   function handleSubmit(e) {
     return e.preventDefault();
   }
-
+  const updateSettingsField = (index, propertyName) => e => {
+    const settings = [...roundSettings];
+    settings[index][propertyName] = parseInt(e.target.value);
+    setRoundSettings(settings);
+  };
+  
   var buttonStyles = {
     color: "#000a3c",
     height: "80px",
@@ -44,9 +50,7 @@ const SettingsPage = () => {
           </Typography>
 
           <form onSubmit={handleSubmit}>
-            <SelectField label="Category" />
-            <SelectField label="Difficulty" />
-            <SelectField label="Total Questions" />
+            <Categories label="Category" onChange={updateSettingsField("category")} />
             <Button fullWidth variant="contained" type="submit" 
             style={buttonStyles}>
               Play
