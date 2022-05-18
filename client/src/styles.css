@@ -19,14 +19,14 @@ body {
 .primary-button,
 .secondary-button {
   color: var(--primary-blue-very-dark);
-  width: 60%;
+  width: 60% !important;
   height: 80px;
-  font-weight: 700;
+  font-weight: 700 !important;
   display: block;
   border: none;
-  font-size: 30px;
+  font-size: 30px !important;
   cursor: pointer;
-  margin-top: 30px;
+  margin-top: 30px !important;
 }
 
 .primary-button {
@@ -136,6 +136,30 @@ footer a {
 
 /***************************************************************************************/
 /* SettingsPage */
+
+.settings-container {
+  padding-top: 2%;
+  padding-bottom: 5%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.quiz-settings-title {
+  font-size: 64px;
+  text-align: center;
+  margin-top: 2%;
+  margin-bottom: 1%;
+  font-family: "Poppins", sans-serif !important;
+}
+
+.quiz-setting-rules-link {
+  font-size: 24px !important;
+  font-weight: 500 !important;
+  text-decoration: underline;
+  cursor: pointer;
+  text-align: center;
+  font-family: "Poppins", sans-serif !important;
+}
 
 /***************************************************************************************/
 /* GamePage */
@@ -290,9 +314,16 @@ footer a {
 
 /***************************************************************************************/
 /* RulesPage */
+#rulesPage-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 #rules-heading {
   font-size: 64px;
   font-weight: 700;
+  padding-top: 1%;
 }
 
 .btn-container {
@@ -329,19 +360,6 @@ footer a {
 }
 
 /***************************************************************************************/
-/* RulesPage */
-#RulesPage-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-#rules-heading {
-  font-size: 64px;
-  font-weight: 700;
-}
-
-/***************************************************************************************/
 /* Responsive Styling */
 @media screen and (min-width: 700px) {
   .responsive-para {
@@ -356,9 +374,9 @@ footer a {
   }
   .primary-button,
   .secondary-button {
-    width: 50%;
-    height: 50px;
-    font-size: 16px;
+    width: 50% !important;
+    height: 50px !important;
+    font-size: 16px !important;
   }
 
   header {
@@ -407,6 +425,25 @@ footer a {
 
   #beforeYouStart-terms {
     font-size: 18px;
+  }
+
+  /* SettingsPage */
+  .settings-container {
+    padding-top: 2%;
+    padding-bottom: 5%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+
+  .quiz-settings-title {
+    font-size: 32px;
+
+    margin-top: 2%;
+    margin-bottom: 1%;
+  }
+
+  .quiz-setting-rules-link {
+    font-size: 16px !important;
   }
 
   /* GamePage */
