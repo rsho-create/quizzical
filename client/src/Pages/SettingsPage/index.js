@@ -1,42 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Box } from '@mui/system';
-import { Navbar } from "../../components";
-import { SelectField } from '../../components';
-import { Container, Typography } from "@mui/material";
 import { Button } from "@mui/material"
-import TextFieldComp from "../../components/TextField";
+import { Navbar } from "../../components";
+import { Categories, SelectField, difficultyOptions, TextFieldComp, timerOptions, questionsOptions, settingsButtonStyles } from '../../components';
+import { useNavigate } from "react-router-dom";
+import { Container, Typography } from "@mui/material";
+import { useSelector, useDispatch } from "react-redux";
 
 const SettingsPage = () => {
-
+  const navigate = useNavigate();
+  const [roundSettings, setRoundSettings] = useState([]);
+  
   function handleSubmit(e) {
     return e.preventDefault();
   }
 
-  var buttonStyles = {
-    color: "#000a3c",
-    height: "80px",
-    fontWeight: 700,
-    display: "block",
-    border: "none",
-    fontSize: "30px",
-    cursor: "pointer",
-    marginTop: "30px",
-    backgroundColor: "#ffc107",
-    fontFamily: "Poppins",
-    textTransform: "none"
-  }
+  const updateSettingsField = (index, propertyName) => e => {
+    const settings = [...roundSettings];
+    settings[index][propertyName] = parseInt(e.target.value);
+    setRoundSettings(settings);
+  };
+
+  const startGame = () => {
+    dispatch(updateRoundSettings(roundSettings));
+    history.push(`question/${id}`);
+  };
 
   return (
     <>
       <Navbar />
 
-      <Container maxWidth="sm">
+      <Container maxWidth="md" style={{backgroundColor:"white"}}>
 
-        <Box textAlign="center" mt={5}>
+        <Box textAlign="center" mt={5} >
 
-          <Typography variant="h3" fontWeight="Bold">
-            Quiz Settings
-          </Typography>
+          <h1 className="quiz-settings">Quiz Settings</h1>
           {"\n"}
           {"\n"}
           <Typography variant="h5">
@@ -44,11 +42,27 @@ const SettingsPage = () => {
           </Typography>
 
           <form onSubmit={handleSubmit}>
-            <SelectField label="Category" />
-            <SelectField label="Difficulty" />
-            <SelectField label="Total Questions" />
+
+            <label for="category">Category</label>
+            <Categories />
+
+            <label for="difficulty">Difficulty</label>
+            <SelectField options={difficultyOptions} label="Difficulty"/>
+
+            <label for="qnumber">Number of Questions</label>
+            <SelectField options={questionsOptions} label="Number of Questions"/>
+
+            <label for="timer">Timer</label>
+            <SelectField options={timerOptions} label="Timer"/>
+
+            <label for="timer">Player 1 Name</label>
+            <TextFieldComp  label="Player 1 Name" />
+
+            <label for="timer">Player 2 Name</label>
+            <TextFieldComp label="Player 2 Name"/>
+
             <Button fullWidth variant="contained" type="submit" 
-            style={buttonStyles}>
+            style={settingsButtonStyles}> 
               Play
             </Button>
 
