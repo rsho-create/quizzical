@@ -2,9 +2,7 @@ const app = require("../../app.js");
 
 describe("users endpoints", () => {
   let api;
-  beforeEach(async () => {
-    await resetTestDB();
-  });
+  
 
   beforeAll(async () => {
     api = app.listen(3001, () =>
