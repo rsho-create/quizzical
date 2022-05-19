@@ -1,9 +1,19 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk  } from "@reduxjs/toolkit";
+import { getQuestions } from "../actions";
+
+export const fetchQuestions = createAsyncThunk(
+  "reducers/fetchQuestions",
+  async (query) => {
+    const {numOfQs, catId, difficulty} = query
+    const res = await getQuestions(numOfQs, catId, difficulty);
+    return res;
+  }
+);
 
 export const questionsSlice = createSlice({
   name: "questions",
   initialState: {
-    question: null,
+    questions: [],
     answers: [],
     correctAnswer: null
   },
@@ -26,7 +36,7 @@ export const {
   setCorrectAnswer
 } = questionsSlice.actions;
 
-export const currentQuestion = state => state.questions.question;
+export const currentQuestion = state => state.questions.questions;
 export const allAnswers = state => state.questions.answers;
 export const correctAns = state => state.questions.correctAnswer;
 

@@ -1,9 +1,6 @@
 export { default as Navbar } from "./Navbar";
 export { default as Footer } from "./Footer";
 export { default as Results } from "./Results";
-export { default as TextFieldComp } from './TextFieldComp';
-export { default as Categories } from './Categories';
-export { default as SelectField } from './SelectField';
 
 export var settingsButtonStyles = {
     color: "#000a3c",
