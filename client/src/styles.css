@@ -81,7 +81,18 @@ header {
   max-width: 570px;
   text-align: center;
 }
+#beer-container {
+  display: flex;
+}
 
+#beer-container img {
+  margin: 10px;
+}
+
+#reverse-beer {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
 footer {
   color: var(--primary-blue-light);
   background-color: var(--primary-blue);
