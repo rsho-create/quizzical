@@ -10,14 +10,11 @@ async function getCategories() {
     console.log(e);
   }
 }
-
 async function getQuestions(numOfQs, catId, difficulty) {
-  console.log(numOfQs, catId, difficulty);
   try {
     const res = await axios.get(
       `${URL}/api.php?amount=${numOfQs}&category=${catId}&difficulty=${difficulty}&type=multiple`
     );
-    console.log(res);
     return res.data.results;
   } catch (e) {
     console.log(e);

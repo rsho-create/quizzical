@@ -39,7 +39,6 @@ const SettingsPage = () => {
   //getting categories from redux
   const allCategories = useSelector(categories);
   const categoriesSliced = allCategories.slice(24);
-  console.log(form)
   const categoryStatus = useSelector(state => state.categories.status);
 
   // fetching categories and loading form
@@ -64,7 +63,7 @@ const SettingsPage = () => {
 
   const startGame = () => {
     dispatch(updateRoundSettings(form));
-    dispatch(fetchQuestions(form.numOfQuestions, form.category, form.difficulty))
+    dispatch(fetchQuestions(form))
     navigate("/game");
   };
 
