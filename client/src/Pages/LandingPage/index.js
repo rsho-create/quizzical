@@ -15,11 +15,15 @@ const LandingPage = () => {
             id="Landing-logo"
             alt="Quizzical Logo"
           />
-          <h2 id="Landing-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eleifend
-            viverra dictumst posuere aliquet sem nullam in diam. Eleifend
-            viverra dictumst posuere aliquet sem nullam in diam.
-          </h2>
+          <h2 id="Landing-text">The drinking game like no other!</h2>
+          <div id="beer-container">
+            <img
+              id="reverse-beer"
+              src="../images/beer.png"
+              alt="frothy pint of beer"
+            />
+            <img src="../images/beer.png" alt="frothy pint of beer" />{" "}
+          </div>{" "}
           <button className="primary-button" onClick={() => navigate("/agree")}>
             Play
           </button>
