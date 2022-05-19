@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { Navbar } from "../../components";
+import { Navbar, Timer } from "../../components";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import {
@@ -66,6 +66,10 @@ const GamePage = () => {
   return (
     <>
       <Navbar />
+      <Timer
+        currTime={timer}
+        maxTime={roundSettings[currRoundCount - 1]}
+      />
       <div className="timer">
         <div className="remaining-time-line">.</div>
         <div className="remaining-time-text">0:29</div>
