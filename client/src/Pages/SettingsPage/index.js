@@ -39,6 +39,8 @@ const SettingsPage = () => {
   //getting categories from redux
   const allCategories = useSelector(categories);
   const categoriesSliced = allCategories.slice(24);
+  console.log(categoriesSliced)
+  console.log(form)
   const categoryStatus = useSelector(state => state.categories.status);
 
   // fetching categories and loading form
@@ -88,7 +90,7 @@ const SettingsPage = () => {
               <Select value={form.category} name="category" label="Categories" 
               onChange={changeHandler} >
 
-                {categoriesSliced.map(({name}, id) => (
+                {categoriesSliced.map(({name, id}) => (
                   <MenuItem value={id} key={id}>{name}</MenuItem>
                 ))}
 
