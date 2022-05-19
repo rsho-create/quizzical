@@ -51,12 +51,20 @@ const GamePage = () => {
   }, [categoryStatus, dispatch]);
 
   function answerClick(e) {
+    let currentAnswer = e.target.innerHTML;
     if (currentQuestion > allQuestions.length) {
       navigate("/results");
     }
     setCurrentQuestion((prev) => prev + 1);
-    console.log(currentQuestion);
-    console.log(allQuestions.length);
+    // console.log(currentQuestion);
+    // console.log(allQuestions.length);
+    // Checking the answer & provide user feedback
+    if (currentAnswer === allQuestions[currentQuestion].correct_answer) {
+      return alert("CORRECT!");
+      // Update the score if necessary
+    } else {
+      return alert("FAIL. DRINK UP!");
+    }
   }
   // timer
   const currRoundCount = useSelector(roundCount);
@@ -64,16 +72,10 @@ const GamePage = () => {
 
   const roundSettings = useSelector((state) => state.game.roundSettings);
 
-  const roundSettings = useSelector((state) => state.game.roundSettings);
-
   // all questions
   const allQuestions = useSelector(questions);
 
   console.log(allQuestions);
-
-  const [timer, setTimer] = useState(-1);
-
-  const [numOfQuestions, setNumOfQuestions] = useState(1);
 
   function useInterval(callback, delay) {
     const savedCallback = useRef();
@@ -134,11 +136,36 @@ const GamePage = () => {
 
         <div className="answers-container">
           <div className="answer1" onClick={answerClick}>
-            A
+            {allQuestions.length === 0 ? (
+              <h1>Loading...</h1>
+            ) : (
+              allQuestions[currentQuestion].correct_answer
+            )}
           </div>
-          <div className="answer2">B</div>
-          <div className="answer3">C</div>
-          <div className="answer4">D</div>
+          <div className="answer2" onClick={answerClick}>
+            {" "}
+            {allQuestions.length === 0 ? (
+              <h1>Loading...</h1>
+            ) : (
+              allQuestions[currentQuestion].incorrect_answers[0]
+            )}
+          </div>
+          <div className="answer3" onClick={answerClick}>
+            {" "}
+            {allQuestions.length === 0 ? (
+              <h1>Loading...</h1>
+            ) : (
+              allQuestions[currentQuestion].incorrect_answers[1]
+            )}
+          </div>
+          <div className="answer4" onClick={answerClick}>
+            {" "}
+            {allQuestions.length === 0 ? (
+              <h1>Loading...</h1>
+            ) : (
+              allQuestions[currentQuestion].incorrect_answers[2]
+            )}
+          </div>
         </div>
       </div>
     </>
