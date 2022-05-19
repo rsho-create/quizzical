@@ -79,6 +79,7 @@ export const roundCount = state => state.game.roundCount;
 export const questionCount = state => state.game.questionCount;
 export const gameId = state => state.game.id;
 export const scores = state => state.game.scores;
+export const gameInfo = state => state.game.roundSettings;
 //export const timer = state => state.game.timer;
 
 export default gameSlice.reducer;

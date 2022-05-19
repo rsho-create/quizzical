@@ -58,8 +58,7 @@ const SettingsPage = () => {
   const allCategories = useSelector(categories);
   const categoriesSliced = allCategories.slice(24);
 
-  console.log(categoriesSliced)
-  console.log(form)
+
   const categoryStatus = useSelector(state => state.categories.status);
 
 

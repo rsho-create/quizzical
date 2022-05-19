@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { CircularProgress, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { useNavigate } from "react-router-dom";
+import { QuestionNumber } from "../../components";
 import {
   roundCount,
   questionCount,
@@ -12,9 +13,9 @@ import {
   setScores,
   setQuestionCount,
   setIsRoundOver,
+  gameInfo
 } from "../../reducers/gameSlice";
 import { questions } from "../../reducers/questionsSlice";
-
 
 const GamePage = () => {
   const dispatch = useDispatch();
@@ -22,12 +23,13 @@ const GamePage = () => {
 
   const [timer, setTimer] = useState(-1);
   const [answers, setAnswers] = useState();
-  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [currentQuestion, setCurrentQuestion] = useState(1);
 
-  const [numOfQuestions, setNumOfQuestions] = useState(1);
-
-  const categoryStatus = useSelector(state => state.categories.status);
+  // redux stuff
   const questionsStatus = useSelector(state => state.questions.status);
+  const formInfo = useSelector(gameInfo);
+
+  console.log(formInfo)
 
   useEffect(() => {
     if (questionsStatus === "loading") {
@@ -44,10 +46,11 @@ const GamePage = () => {
 
     if (questionsStatus === "fulfilled") {
       setAnswers([allQuestions.correct_answer, ...allQuestions.incorrect_answers])
+      console.log(answers)
     };
 
 
-  }, [categoryStatus]);
+  }, [questionsStatus]);
 
   function answerClick(e) {
     if (currentQuestion > allQuestions.length ) {
@@ -57,58 +60,26 @@ const GamePage = () => {
     console.log(currentQuestion)
     console.log(allQuestions.length)
   }
-  // timer
+  // round
   const currRoundCount = useSelector(roundCount);
-  
-  // settings for round
-
   const roundSettings = useSelector((state) => state.game.roundSettings);
-
-  const roundSettings = useSelector(state => state.game.roundSettings);
 
   // all questions
   const allQuestions = useSelector(questions);
 
-  console.log(allQuestions);
+  
 
-  const [timer, setTimer] = useState(-1);
-
-  const [numOfQuestions, setNumOfQuestions] = useState(1);
-
-
-  function useInterval(callback, delay) {
-    const savedCallback = useRef();
-
-    // Remember the latest function.
-    useEffect(() => {
-      savedCallback.current = callback;
-    }, [callback]);
-
-    // Set up the interval.
-    useEffect(() => {
-      function tick() {
-        savedCallback.current();
-      }
-      if (delay !== null) {
-        let id = setInterval(tick, delay);
-        return () => clearInterval(id);
-      }
-    }, [delay]);
-  }
-
-  // timer
-  useInterval(() => {
-    if (timer > 0) setTimer(timer - 1);
-    else if (timer === 0) {
-      socket.emit("getCorrectAnswer", { roomId: id });
-      setTimer(-1);
-    }
-  }, 1000);
+  const htmlEntities = {
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&apos;"
+  };
 
   return (
     <>
       <Navbar />
-      <Timer currTime={timer} maxTime={roundSettings[currRoundCount - 1]} />
       <div className="timer">
         <div className="remaining-time-line">.</div>
         <div className="remaining-time-text">0:29</div>
@@ -125,7 +96,12 @@ const GamePage = () => {
           </div>
         </div>
 
-        <div className="question">{allQuestions.length === 0 ? <h1>Loading...</h1> : allQuestions[currentQuestion].question }</div>
+        <QuestionNumber
+        currQuestion={ currentQuestion }
+        numOfQuestions={formInfo.numOfQuestions}
+      />
+
+        <div className="question">{allQuestions.length === 0 ? <h1>Loading...</h1> : allQuestions[currentQuestion ].question}</div>
 
 
         <div className="answers-container">
