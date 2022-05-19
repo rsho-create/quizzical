@@ -26,6 +26,9 @@ const GamePage = () => {
   const [player1, setPlayer1] = useState(true);
   const [player2, setPlayer2] = useState(false);
 
+  const { player1Score, setPlayer1Score } = useState();
+  const { player2Score, setPlayer2Score } = useState();
+
   const categoryStatus = useSelector((state) => state.categories.status);
   const questionsStatus = useSelector((state) => state.questions.status);
 
@@ -128,11 +131,11 @@ const GamePage = () => {
         <div className="players">
           <div className={player1 ? "active-player player1" : "player1"}>
             Player1
-            <div className="player1-score">Score: 2</div>
+            <div className="player1-score">Score: {player1Score}</div>
           </div>
           <div className={player2 ? "active-player player2" : "player2"}>
             Player2
-            <div className="player2-score">Score: 1</div>
+            <div className="player2-score">Score: {player2Score}</div>
           </div>
         </div>
 
