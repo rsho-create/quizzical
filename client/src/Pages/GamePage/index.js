@@ -22,8 +22,9 @@ const GamePage = () => {
   const [timer, setTimer] = useState(-1);
   const [answers, setAnswers] = useState();
   const [currentQuestion, setCurrentQuestion] = useState(0);
-
   const [numOfQuestions, setNumOfQuestions] = useState(1);
+  const [player1, setPlayer1] = useState(true);
+  const [player2, setPlayer2] = useState(false);
 
   const categoryStatus = useSelector((state) => state.categories.status);
   const questionsStatus = useSelector((state) => state.questions.status);
@@ -51,13 +52,24 @@ const GamePage = () => {
   }, [categoryStatus, dispatch]);
 
   function answerClick(e) {
+    if (player1) {
+      setPlayer1(false);
+      setPlayer2(true);
+    } else {
+      setPlayer1(true);
+      setPlayer2(false);
+    }
+
     let currentAnswer = e.target.innerHTML;
     if (currentQuestion > allQuestions.length) {
       navigate("/results");
     }
+
     setCurrentQuestion((prev) => prev + 1);
+
     // console.log(currentQuestion);
     // console.log(allQuestions.length);
+
     // Checking the answer & provide user feedback
     if (currentAnswer === allQuestions[currentQuestion].correct_answer) {
       return alert("CORRECT!");
@@ -74,8 +86,6 @@ const GamePage = () => {
 
   // all questions
   const allQuestions = useSelector(questions);
-
-  console.log(allQuestions);
 
   function useInterval(callback, delay) {
     const savedCallback = useRef();
@@ -109,18 +119,18 @@ const GamePage = () => {
   return (
     <>
       <Navbar />
-      <Timer currTime={timer} maxTime={roundSettings[currRoundCount - 1]} />
+
       <div className="timer">
         <div className="remaining-time-line">.</div>
         <div className="remaining-time-text">0:29</div>
       </div>
       <div className="game-container">
         <div className="players">
-          <div className="player1">
+          <div className={player1 ? "active-player player1" : "player1"}>
             Player1
             <div className="player1-score">Score: 2</div>
           </div>
-          <div className="player2 active-player">
+          <div className={player2 ? "active-player player2" : "player2"}>
             Player2
             <div className="player2-score">Score: 1</div>
           </div>
