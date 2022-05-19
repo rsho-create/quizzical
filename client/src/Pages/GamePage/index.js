@@ -29,7 +29,6 @@ const GamePage = () => {
   const categoryStatus = useSelector(state => state.categories.status);
   const questionsStatus = useSelector(state => state.questions.status);
 
-  // fetching categories and loading form
   useEffect(() => {
     if (questionsStatus === "loading") {
       <Box mt={20}>
@@ -48,10 +47,7 @@ const GamePage = () => {
     };
 
 
-  }, [categoryStatus, dispatch]);
-
-
-
+  }, [categoryStatus]);
 
   function answerClick(e) {
     if (currentQuestion > allQuestions.length ) {
@@ -63,6 +59,7 @@ const GamePage = () => {
   }
   // timer
   const currRoundCount = useSelector(roundCount);
+  
   // settings for round
   const roundSettings = useSelector(state => state.game.roundSettings);
   
