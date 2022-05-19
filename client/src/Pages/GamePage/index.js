@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Navbar, Timer } from "../../components";
 import { useSelector, useDispatch } from "react-redux";
-import { CircularProgress, Typography } from '@mui/material';
-import { Box } from '@mui/system';
+import { CircularProgress, Typography } from "@mui/material";
+import { Box } from "@mui/system";
 import { useNavigate } from "react-router-dom";
 import {
   roundCount,
@@ -15,7 +15,6 @@ import {
 } from "../../reducers/gameSlice";
 import { questions } from "../../reducers/questionsSlice";
 
-
 const GamePage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -26,40 +25,46 @@ const GamePage = () => {
 
   const [numOfQuestions, setNumOfQuestions] = useState(1);
 
-  const categoryStatus = useSelector(state => state.categories.status);
-  const questionsStatus = useSelector(state => state.questions.status);
+  const categoryStatus = useSelector((state) => state.categories.status);
+  const questionsStatus = useSelector((state) => state.questions.status);
 
   // fetching categories and loading form
   useEffect(() => {
     if (questionsStatus === "loading") {
       <Box mt={20}>
         <CircularProgress size={150} />
-      </Box>
+      </Box>;
     }
 
     if (questionsStatus === "failed") {
-        <Typography variant="h6" mt={20} color="red">
-          Technical Difficulties! Refresh the Page and Take a Shot!
-        </Typography>
-    };
+      <Typography variant="h6" mt={20} color="red">
+        Technical Difficulties! Refresh the Page and Take a Shot!
+      </Typography>;
+    }
 
     if (questionsStatus === "fulfilled") {
-      setAnswers([allQuestions.correct_answer, ...allQuestions.incorrect_answers])
-    };
-
-
+      setAnswers([
+        allQuestions.correct_answer,
+        ...allQuestions.incorrect_answers,
+      ]);
+    }
   }, [categoryStatus, dispatch]);
 
-
-
-
   function answerClick(e) {
-    if (currentQuestion > allQuestions.length ) {
-      navigate("/results")
+    let currentAnswer = e.target.innerHTML;
+    if (currentQuestion > allQuestions.length) {
+      navigate("/results");
     }
-    setCurrentQuestion(prev => prev + 1)
-    console.log(currentQuestion)
-    console.log(allQuestions.length)
+    setCurrentQuestion((prev) => prev + 1);
+    // console.log(currentQuestion);
+    // console.log(allQuestions.length);
+    // Checking the answer & provide user feedback
+    if (currentAnswer === allQuestions[currentQuestion].correct_answer) {
+      return alert("CORRECT!");
+      // Update the score if necessary
+    } else {
+      return alert("FAIL. DRINK UP!");
+    }
   }
   // timer
   const currRoundCount = useSelector(roundCount);
@@ -67,17 +72,10 @@ const GamePage = () => {
 
   const roundSettings = useSelector((state) => state.game.roundSettings);
 
-  const roundSettings = useSelector(state => state.game.roundSettings);
-
   // all questions
   const allQuestions = useSelector(questions);
 
   console.log(allQuestions);
-
-  const [timer, setTimer] = useState(-1);
-
-  const [numOfQuestions, setNumOfQuestions] = useState(1);
-
 
   function useInterval(callback, delay) {
     const savedCallback = useRef();
@@ -128,14 +126,46 @@ const GamePage = () => {
           </div>
         </div>
 
-        <div className="question">{allQuestions.length === 0 ? <h1>Loading...</h1> : allQuestions[currentQuestion].question }</div>
-
+        <div className="question">
+          {allQuestions.length === 0 ? (
+            <h1>Loading...</h1>
+          ) : (
+            allQuestions[currentQuestion].question
+          )}
+        </div>
 
         <div className="answers-container">
-          <div className="answer1" onClick={answerClick}>A</div>
-          <div className="answer2">B</div>
-          <div className="answer3">C</div>
-          <div className="answer4">D</div>
+          <div className="answer1" onClick={answerClick}>
+            {allQuestions.length === 0 ? (
+              <h1>Loading...</h1>
+            ) : (
+              allQuestions[currentQuestion].correct_answer
+            )}
+          </div>
+          <div className="answer2" onClick={answerClick}>
+            {" "}
+            {allQuestions.length === 0 ? (
+              <h1>Loading...</h1>
+            ) : (
+              allQuestions[currentQuestion].incorrect_answers[0]
+            )}
+          </div>
+          <div className="answer3" onClick={answerClick}>
+            {" "}
+            {allQuestions.length === 0 ? (
+              <h1>Loading...</h1>
+            ) : (
+              allQuestions[currentQuestion].incorrect_answers[1]
+            )}
+          </div>
+          <div className="answer4" onClick={answerClick}>
+            {" "}
+            {allQuestions.length === 0 ? (
+              <h1>Loading...</h1>
+            ) : (
+              allQuestions[currentQuestion].incorrect_answers[2]
+            )}
+          </div>
         </div>
       </div>
     </>
