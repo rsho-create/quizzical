@@ -120,10 +120,8 @@ const SettingsPage = () => {
               </FormControl>
             </Box>
 
-
-            
-          <Box mt={3} width="100%">
-              <FormControl  fullWidth  >
+            <Box mt={3} width="100%">
+              <FormControl fullWidth>
                 <InputLabel>Difficulty</InputLabel>
                 <Select
                   value={form.difficulty}
