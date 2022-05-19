@@ -11,7 +11,7 @@ import {
   setQuestionCount,
   setIsRoundOver
 } from "../../reducers/gameSlice";
-import { currentQuestion } from "../../reducers/questionsSlice";
+import { questions } from "../../reducers/questionsSlice";
 
 const GamePage = () => {
   const dispatch = useDispatch();
@@ -22,7 +22,7 @@ const GamePage = () => {
   // settings for round
   const roundSettings = useSelector(state => state.game.roundSettings);
   // all questions
-  const allQuestions = useSelector(currentQuestion);
+  const allQuestions = useSelector(questions);
 
   console.log(allQuestions)
 
