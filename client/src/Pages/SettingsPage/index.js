@@ -108,7 +108,7 @@ const SettingsPage = () => {
                   label="Categories"
                   onChange={changeHandler}
                 >
-                  {categoriesSliced.map(({ name }, id) => (
+                  {categoriesSliced.map(({ name, id }) => (
                     <MenuItem value={id} key={id}>
                       {name}
                     </MenuItem>
