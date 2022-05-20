@@ -31,7 +31,7 @@ const LandingPage = () => {
             className="secondary-button"
             onClick={() => navigate("/rules")}
           >
-            Rules
+            How to Play
           </button>
         </div>
         <Footer />
