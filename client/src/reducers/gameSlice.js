@@ -10,7 +10,8 @@ export const gameSlice = createSlice({
     id: null,
     error: null,
     status: "idle",
-    players: [],
+    player1: [],
+    player2: [],
     roundSettings: [],
     roundCount: 1,
     questionCount: 1,
@@ -42,7 +43,7 @@ export const gameSlice = createSlice({
       state.players.push(action.payload);
     },
     updateRoundSettings: (state, action) => {
-      state.roundSettings = [...action.payload];
+      state.roundSettings = action.payload;
     }
     // updateTimer: (state, action) => {
     //   state.timer = action.paylod;
@@ -78,6 +79,7 @@ export const roundCount = state => state.game.roundCount;
 export const questionCount = state => state.game.questionCount;
 export const gameId = state => state.game.id;
 export const scores = state => state.game.scores;
+export const gameInfo = state => state.game.roundSettings;
 //export const timer = state => state.game.timer;
 
 export default gameSlice.reducer;
