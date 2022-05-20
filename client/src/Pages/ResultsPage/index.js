@@ -1,9 +1,23 @@
 import React from "react";
 import { Navbar, Results } from "../../components";
 import { useNavigate } from "react-router-dom";
+import { gameInfo, player1Sc, player2Sc } from "../../reducers/gameSlice";
+import { useSelector, useDispatch } from "react-redux";
 
 const ResultsPage = () => {
   const navigate = useNavigate();
+
+  // get the formInfo again - get scores for player names
+  const formInfo = useSelector(gameInfo);
+
+  // player 1 and player 2 scores
+  const player1Score = useSelector(player1Sc);
+  const player2Score = useSelector(player2Sc);
+
+  console.log(formInfo)
+
+  console.log(player1Score, player2Score)
+
   return (
     <>
       {/* NavBar & Title */}
@@ -28,7 +42,7 @@ const ResultsPage = () => {
               <div className="points-container">
                 <p className="responsive-para">Player1</p>
                 <img src="./images/beer.png" alt="Pint of frothy beer" />
-                <p>3 points</p>
+                <p>{player1Score} points</p>
               </div>
             </div>
 
@@ -43,7 +57,7 @@ const ResultsPage = () => {
                   src="./images/whisky.png"
                   alt="Bottle of whisky and a spilt shot glass"
                 />
-                <p>1 point</p>
+                <p>{player2Score} point</p>
               </div>
             </div>
           </div>
