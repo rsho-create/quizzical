@@ -321,6 +321,17 @@ footer a {
 
 /***************************************************************************************/
 /* RulesPage */
+#rulesPage-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#rulesPage-section p {
+  width: 60%;
+  font-size: 18px;
+}
+
 #rules-heading {
   font-size: 64px;
   font-weight: 700;
@@ -340,6 +351,7 @@ footer a {
 
 #rules-list {
   font-size: 24px;
+  width: 60%;
 }
 
 /***************************************************************************************/
@@ -357,19 +369,6 @@ footer a {
 #error p {
   margin-top: 50px;
   font-size: 34px;
-}
-
-/***************************************************************************************/
-/* RulesPage */
-#RulesPage-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-#rules-heading {
-  font-size: 64px;
-  font-weight: 700;
 }
 
 /***************************************************************************************/

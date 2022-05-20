@@ -7,6 +7,7 @@ import { decode } from "html-entities";
 import { useNavigate } from "react-router-dom";
 import { gameInfo } from "../../reducers/gameSlice";
 import { questions } from "../../reducers/questionsSlice";
+import { gameId, updateRoundSettings, updatePlayer1, updatePlayer2 } from "../../reducers/gameSlice";
 
 export const LocationDisplay = () => {
   const location = useLocation();
@@ -67,7 +68,21 @@ const GamePage = () => {
   useInterval(() => {
     if (timer > 0) setTimer(timer - 1);
     else if (timer === 0) {
-      setCurrentQuestion((prev) => prev + 1);
+
+      
+      // when timer resets ... say you were wrong and increase question
+      alert("FAIL. DRINK UP!");
+      setCurrentQuestion(prev => prev + 1)
+
+      // switch players
+      if (player1) {
+        setPlayer1(false);
+        setPlayer2(true);
+      } else {
+        setPlayer1(true);
+        setPlayer2(false);
+      }
+
       setTimer(formInfo.timer);
     }
   }, 1000);
@@ -117,21 +132,32 @@ const GamePage = () => {
       setPlayer2(false);
     }
 
-    const question = allQuestions[currentQuestion - 1];
 
+    setTimer(formInfo.timer)
+    
+    const question = allQuestions[currentQuestion - 1]
+
+
+    // when correct ...
     if (e.target.textContent === question.correct_answer) {
+      alert("CORRECT!");
       if (player1) {
         setPlayer1Score((prev) => prev + 1);
       }
       if (player2) {
         setPlayer2Score((prev) => prev + 1);
       }
+    } else {
+      // if wrong ...
+      alert("FAIL. DRINK UP!");
     }
 
     if (currentQuestion < allQuestions.length) {
       setCurrentQuestion((prev) => prev + 1);
     } else {
-      navigate("/results");
+      dispatch(updatePlayer1(player1Score))
+      dispatch(updatePlayer2(player2Score))
+      navigate("/results")
     }
   };
 

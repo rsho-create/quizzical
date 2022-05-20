@@ -8,46 +8,22 @@ export const gameSlice = createSlice({
   name: "game",
   initialState: {
     id: null,
-    error: null,
     status: "idle",
-    player1: [],
-    player2: [],
+    player1Score: 0,
+    player2Score: 0,
     roundSettings: [],
-    roundCount: 1,
-    questionCount: 1,
-    isRoundOver: false,
-    isGameOver: false,
-    scores: []
     //timer: -1
   },
   reducers: {
-    incrementRound: (state, action) => {
-      state.roundCount += 1;
+    updatePlayer1: (state, action) => {
+      state.player1Score += action.payload;
     },
-    setQuestionCount: (state, action) => {
-      state.questionCount = action.payload;
-    },
-    incrementQuestion: (state, action) => {
-      state.questionCount += 1;
-    },
-    setScores: (state, action) => {
-      state.scores = [...action.payload];
-    },
-    setIsRoundOver: (state, action) => {
-      state.isRoundOver = action.payload;
-    },
-    setIsGameOver: (state, action) => {
-      state.isGameOver = action.payload;
-    },
-    addPlayer: (state, action) => {
-      state.players.push(action.payload);
+    updatePlayer2: (state, action) => {
+      state.player2Score += action.payload;
     },
     updateRoundSettings: (state, action) => {
       state.roundSettings = action.payload;
     }
-    // updateTimer: (state, action) => {
-    //   state.timer = action.paylod;
-    // }
   },
   extraReducers: {
     [fetchGameId.pending]: (state, action) => {
@@ -65,21 +41,16 @@ export const gameSlice = createSlice({
 });
 
 export const {
-  incrementQuestion,
-  incrementRound,
-  setScores,
-  setQuestionCount,
-  setIsGameOver,
-  setIsRoundOver,
-  addPlayer,
+  updatePlayer1,
+  updatePlayer2,
   updateRoundSettings
 } = gameSlice.actions;
 
-export const roundCount = state => state.game.roundCount;
-export const questionCount = state => state.game.questionCount;
-export const gameId = state => state.game.id;
-export const scores = state => state.game.scores;
+// getting player 1 score and player 2
+export const player1Sc = state => state.game.player1Score;
+export const player2Sc = state => state.game.player2Score;
+
+// getting form info
 export const gameInfo = state => state.game.roundSettings;
-//export const timer = state => state.game.timer;
 
 export default gameSlice.reducer;
