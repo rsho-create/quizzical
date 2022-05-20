@@ -10,6 +10,7 @@ async function getCategories() {
     console.log(e);
   }
 }
+
 async function getQuestions(numOfQs, catId, difficulty) {
   try {
     const res = await axios.get(
@@ -21,4 +22,12 @@ async function getQuestions(numOfQs, catId, difficulty) {
   }
 }
 
-export { getCategories, getQuestions };
+async function sendScoreToDB(data) {
+  try {
+    const res = await axios.post('https://app-quizzicle.herokuapp.com/users', data);
+    return res
+  } catch (e) {
+    console.log(e);
+  }
+}
+export { getCategories, getQuestions, sendScoreToDB };

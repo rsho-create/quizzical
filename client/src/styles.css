@@ -174,6 +174,7 @@ footer a {
   background-color: var(--secondary-pink) !important;
   border-radius: 0 !important;
   height: 1.5rem !important;
+  color: var(--primary-blue-light);
 }
 
 .remaining-time-line {
@@ -352,6 +353,7 @@ footer a {
 #rules-list {
   font-size: 24px;
   width: 60%;
+  padding-bottom: 10%;
 }
 
 /***************************************************************************************/

@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Navbar, Results } from "../../components";
 import { useNavigate } from "react-router-dom";
 import { gameInfo, player1Sc, player2Sc } from "../../reducers/gameSlice";
 import { useSelector, useDispatch } from "react-redux";
+import { sendScoreToDB } from "../../actions/Trivia";
 
 const ResultsPage = () => {
   const navigate = useNavigate();
@@ -16,6 +17,25 @@ const ResultsPage = () => {
 
   console.log(formInfo)
 
+  // making the userdata into objects
+  const sendingPlayer1Data = {
+    username: formInfo.player1,
+    score: player1Score
+  }
+
+  const sendingPlayer2Data = {
+    username: formInfo.player2,
+    score: player2Score
+  }
+
+  // sending user scores
+  useEffect( () => {
+    sendScoreToDB(sendingPlayer1Data)
+    sendScoreToDB(sendingPlayer2Data)
+  }, [sendingPlayer2Data, sendingPlayer1Data])
+  
+  
+
   console.log(player1Score, player2Score)
 
   return (
@@ -25,7 +45,7 @@ const ResultsPage = () => {
         <Navbar />
         <div className="page-container">
           <h1>Results</h1>
-          <h3>Player1, pick the Loser's poison!</h3>
+          <h3>{player1Score > player2Score ? formInfo.player1 : formInfo.player2}, pick the {player1Score < player2Score ? formInfo.player1 : formInfo.player2}'s poison!</h3>
 
           {/* Results container */}
           <div id="results-container">
@@ -38,11 +58,11 @@ const ResultsPage = () => {
               <h2>
                 <strong>Winner</strong>
               </h2>
-              <p className="responsive-hidden-p">Player1</p>
+              <p className="responsive-hidden-p">{player1Score > player2Score ? formInfo.player1 : formInfo.player2}</p>
               <div className="points-container">
-                <p className="responsive-para">Player1</p>
+                <p className="responsive-para">{player1Score > player2Score ? formInfo.player1 : formInfo.player2}</p>
                 <img src="./images/beer.png" alt="Pint of frothy beer" />
-                <p>{player1Score} points</p>
+                <p>{player1Score > player2Score ? player1Score : player2Score} points</p>
               </div>
             </div>
 
@@ -50,14 +70,14 @@ const ResultsPage = () => {
               <h2>
                 <strong>Loser</strong>
               </h2>
-              <p className="responsive-hidden-p">Player2</p>
+              <p className="responsive-hidden-p">{player1Score < player2Score ? formInfo.player1 : formInfo.player2}</p>
               <div className="points-container">
-                <p className="responsive-para">Player2</p>
+                <p className="responsive-para">{player1Score < player2Score ? formInfo.player1 : formInfo.player2}</p>
                 <img
                   src="./images/whisky.png"
                   alt="Bottle of whisky and a spilt shot glass"
                 />
-                <p>{player2Score} point</p>
+                <p>{player1Score < player2Score ? player1Score : player2Score} point</p>
               </div>
             </div>
           </div>

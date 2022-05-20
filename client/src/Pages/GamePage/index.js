@@ -7,7 +7,12 @@ import { decode } from "html-entities";
 import { useNavigate } from "react-router-dom";
 import { gameInfo } from "../../reducers/gameSlice";
 import { questions } from "../../reducers/questionsSlice";
-import { gameId, updateRoundSettings, updatePlayer1, updatePlayer2 } from "../../reducers/gameSlice";
+import {
+  gameId,
+  updateRoundSettings,
+  updatePlayer1,
+  updatePlayer2,
+} from "../../reducers/gameSlice";
 
 export const LocationDisplay = () => {
   const location = useLocation();
@@ -68,11 +73,9 @@ const GamePage = () => {
   useInterval(() => {
     if (timer > 0) setTimer(timer - 1);
     else if (timer === 0) {
-
-      
       // when timer resets ... say you were wrong and increase question
       alert("FAIL. DRINK UP!");
-      setCurrentQuestion(prev => prev + 1)
+      setCurrentQuestion((prev) => prev + 1);
 
       // switch players
       if (player1) {
@@ -132,11 +135,9 @@ const GamePage = () => {
       setPlayer2(false);
     }
 
+    setTimer(formInfo.timer);
 
-    setTimer(formInfo.timer)
-    
-    const question = allQuestions[currentQuestion - 1]
-
+    const question = allQuestions[currentQuestion - 1];
 
     // when correct ...
     if (e.target.textContent === question.correct_answer) {
@@ -155,9 +156,9 @@ const GamePage = () => {
     if (currentQuestion < allQuestions.length) {
       setCurrentQuestion((prev) => prev + 1);
     } else {
-      dispatch(updatePlayer1(player1Score))
-      dispatch(updatePlayer2(player2Score))
-      navigate("/results")
+      dispatch(updatePlayer1(player1Score));
+      dispatch(updatePlayer2(player2Score));
+      navigate("/results");
     }
   };
 
@@ -193,7 +194,7 @@ const GamePage = () => {
     <>
       <Navbar />
 
-      <Timer currTime={timer} maxTime={formInfo.timer} />
+      <Timer className="timer" currTime={timer} maxTime={formInfo.timer} />
 
       <QuestionNumber
         currQuestion={currentQuestion}
