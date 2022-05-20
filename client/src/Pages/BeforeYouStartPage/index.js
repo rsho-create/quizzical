@@ -9,24 +9,20 @@ const BeforeYouStartPage = () => {
       <Navbar />
       <div id="beforeYouStart-section">
         <h1 id="beforeYouStart-heading">Before you start, ensure...</h1>
-
         <div id="beforeYouStart-terms">
           <p>
-            <i className="fa-solid fa-martini-glass icon"></i>Everyone playing is
-            over the age of 18
+            <i className="fa-solid fa-martini-glass icon"></i>Everyone playing
+            is over the age of 18
           </p>
-
           <p>
-            <i className="fa-solid fa-skull-crossbones icon"></i>Everyone playing
-            will drink responsibly
+            <i className="fa-solid fa-skull-crossbones icon"></i>Everyone
+            playing will drink responsibly
           </p>
-
           <p>
-            <i className="fa-solid fa-handshake "></i>You agree to our{" "}
-            <a href="">privacy</a> and <a href="">cookie policy</a>
+            <i className="fa-solid fa-handshake "></i>Challenge your friends and
+            remember to have fun!
           </p>
         </div>
-
         <button
           id="agree-button"
           className="primary-button"
