@@ -1,6 +1,6 @@
 import React from "react";
 import { Navbar } from "../../components";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 export const LocationDisplay = () => {
   const location = useLocation();
@@ -18,34 +18,28 @@ const RulesPage = () => {
     <>
       <Navbar />
       <div id="rulesPage-section">
-          <h1 id="rules-heading">How to play </h1>
-          <p>
-            To begin, you will be asked to input your desired setting
-            configuration - you will be able to pick a category, the difficulty
-            of the questions and the number of questions you would like to
-            answer. Once you have (picked your username) you will start to
-            answer questions.
-          </p>
-          <ol id="rules-list">
-            <li>If you get a question wrong, you need to drink</li>
-            <li>
-              If you lose the overall game, the other players can confer and
-              create a forfeit
-            </li>
-            <li>
-              If you are the winner, you can giver as many drinks as there are
-              players
-            </li>
-          </ol>
-          <div className="btn-container">
-            <button
-              id="back-btn"
-              className="primary-button"
-              onClick={() => navigate(-1)}
-            >
-              Back
-            </button>
-          </div>
+        <h1 id="rules-heading">How to play </h1>
+        <p>
+          <strong>To begin,</strong> pick a category, the difficulty of the
+          questions and the number of questions you would like to answer. Once
+          you have (picked your username) the game will begin!
+        </p>
+        <h2>Drinking Rules</h2>
+        <ol id="rules-list">
+          <li>If you get a question wrong, drink</li>
+          <li>If the timer runs out before you answer, drink</li>
+          <li>The Loser drinks a forfeit, decided by the winner</li>
+          <li>Winner gets bragging rights, and a pint(winner's choice)</li>
+        </ol>
+        <div className="btn-container">
+          <button
+            id="back-btn"
+            className="primary-button"
+            onClick={() => navigate(-1)}
+          >
+            Back
+          </button>
+        </div>
       </div>
       <LocationDisplay />
     </>
