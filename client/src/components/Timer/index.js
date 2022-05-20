@@ -1,15 +1,14 @@
 import React from "react";
-import "./timer.css";
 import { ProgressBar } from "react-bootstrap";
 
-export default function Timer({ currTime, maxTime }) {
+export default function Timer( {currTime, maxTime} ) {
+  console.log(currTime)
   return (
     <ProgressBar
-      className="timer"
+      variant="success"
+      label={`${currTime}s`}
       now={currTime}
-      min={0}
       max={maxTime}
-      srOnly
     />
   );
 }

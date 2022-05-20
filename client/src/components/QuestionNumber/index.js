@@ -8,8 +8,8 @@ export default function QuestionNumber({ currQuestion, numOfQuestions }) {
     return navigate("/results")
   }
   return (
-    <div className="question-number">
-      Question {currQuestion} of {numOfQuestions}
+    <div style={{display:"flex", justifyContent:"center", marginTop:"1em"}}>
+      <span style={{fontSize:"1.5em"}}className="question-number">Question {currQuestion} of {numOfQuestions}</span>
     </div>
   );
 }

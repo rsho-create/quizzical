@@ -3,6 +3,8 @@ export { default as Footer } from "./Footer";
 export { default as Results } from "./Results";
 export { default as Timer } from "./Timer";
 export { default as QuestionNumber } from "./QuestionNumber"; 
+export { default as Question } from "./Question";
+
 export var settingsButtonStyles = {
   color: "#000a3c",
   // height: "80px",

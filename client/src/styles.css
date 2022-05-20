@@ -169,10 +169,10 @@ footer a {
 
 /***************************************************************************************/
 /* GamePage */
-.timer {
-  width: 100%;
-  background-color: #c6c1c1;
-  position: relative;
+.progress-bar {
+  background-color: var(--secondary-pink) !important;
+  border-radius: 0 !important;
+  height: 1.5rem !important;
 }
 
 .remaining-time-line {
@@ -456,9 +456,12 @@ footer a {
 
   .quiz-settings-title {
     font-size: 32px;
-
     margin-top: 2%;
     margin-bottom: 1%;
+  }
+
+  .question-number{
+    font-size: larger;
   }
 
   .quiz-setting-rules-link {

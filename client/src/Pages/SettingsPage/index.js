@@ -39,7 +39,7 @@ const SettingsPage = () => {
     category: "",
     difficulty: "easy",
     numOfQuestions: 10,
-    timer: 30,
+    timer: 15,
     player1: "",
     player2: "",
   });
@@ -86,6 +86,8 @@ const SettingsPage = () => {
     dispatch(fetchQuestions(form));
     navigate("/game");
   };
+
+
 
   return (
     <>
